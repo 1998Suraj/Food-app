@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="/Style/style.css" />
+  <body>
+    <div id="navbar"></div>
+    <input type="search" name="Search" id="search" placeholder="Search">
+    <div id="container"></div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./Script/navbar.js";
+  import { getData, append } from "./Script/showData.js";
+
+  let navbar_js = document.getElementById("navbar");
+
+  let search = document.getElementById("search");
+  search.addEventListener("keyup", () => {
+    debounce(foodAppend, 2000);
+  });
+ 
+  function foodAppend() {
+    let s = document.getElementById("search").value;
+    let response = getData(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${s}`
+    );
+    response.then((res) => {
+      let container = document.getElementById("container");
+      append(res, container);
+    });
+    response.catch((err) => {
+      console.log("Error: ", err);
+    });
+  }
+  let timer;
+  function debounce(fn,delay){
+
+    if(timer){
+        clearTimeout(timer);
+    }
+     
+      timer = setTimeout(()=>{
+          fn();
+      },delay);
+  }
+
+  navbar_js.innerHTML = navbar();
+</script>
