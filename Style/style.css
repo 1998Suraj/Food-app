@@ -1,0 +1,57 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4%;
+    padding-right: 4%;
+    border: 1px solid black;
+}
+#options{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#options h3{
+    padding-left: 2px;
+    padding-right: 20px;
+}
+#search{
+    width: 48%;
+    height: 40px;
+    margin-top: 0.5%;
+}
+#submit{
+    width: 8%;
+    height: 40px;
+    margin-top: 0.5%;
+    margin-right: 2%;
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(4,24%);
+    gap: 20px;
+    margin-top: 1%;
+
+}
+img{
+    width: 100%;
+}
+button{
+    background-color: orangered;
+    cursor: pointer;
+}
+#ROD{
+    padding: 0.5rem;
+    justify-content: space-around;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    color: #fff;
+}
+p{
+    background-color: orangered;
+    padding: 0.5rem;
+    font-weight: 200;
+    font-size: x-large;
+}
